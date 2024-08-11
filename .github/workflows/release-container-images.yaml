@@ -1,4 +1,4 @@
-name: release-store-front
+name: release-container-images
 
 on:
   release:
@@ -60,8 +60,11 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: src/store-front
-          file: src/store-front/Dockerfile
+          context: src/${{ matrix.apps }}
+          file: src/${{ matrix.apps }}/Dockerfile
+          platforms: linux/amd64,linux/arm64
+          build-args: |
+            APP_VERSION=${{ steps.set-variables.outputs.VERSION }}
           push: true
           tags: |
             ${{ steps.set-variables.outputs.REPOSITORY }}/${{ steps.set-variables.outputs.IMAGE }}:latest
