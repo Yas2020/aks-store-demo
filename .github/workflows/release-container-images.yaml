@@ -10,8 +10,22 @@ permissions:
 
 jobs:
   publish-container-image:
-  
+ 
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        apps: [
+          # ai-service,
+          # makeline-service,
+          order-service,
+          # product-service,
+          # store-admin,
+          store-front,
+          # virtual-customer,
+          # virtual-worker
+        ]
 
     steps:
       - name: Set environment variables
