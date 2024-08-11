@@ -17,14 +17,14 @@ jobs:
       fail-fast: false
       matrix:
         apps: [
-          # ai-service,
-          # makeline-service,
+          ai-service,
+          makeline-service,
           order-service,
-          # product-service,
-          # store-admin,
+          product-service,
+          store-admin,
           store-front,
-          # virtual-customer,
-          # virtual-worker
+          virtual-customer,
+          virtual-worker
         ]
 
     steps:
